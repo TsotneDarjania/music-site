@@ -1,1 +1,10 @@
+@import url("//cdn.web-fonts.ge/fonts/bpg-classic-medium/css/bpg-classic-medium.min.css");
 
+:root{
+  --georgian-font-1 : "'BPG Classic Medium', sans-serif";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}

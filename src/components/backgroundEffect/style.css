@@ -1,0 +1,36 @@
+
+.background-effect{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background-effect-img{
+    position: absolute;
+    width: 90px;
+    opacity: 0.5;
+
+    animation-name: background-effect-img;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+
+    animation-timing-function:cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    top: -9vh;
+}
+
+@keyframes background-effect-img {
+    from{
+        top: -9vh;
+        transform: rotate(0deg);
+    }
+    to{
+        top : 100vh;
+        transform: rotate(770deg);
+        opacity: 0;
+    }
+    
+}
+
