@@ -4,10 +4,6 @@ import "./style.css"
 import music_note from "../../img/music_note.png"
 
 const Backgroundeffect = () => {
-
-
-
-
   return (
     <div className='background-effect'>
             <img style={{animationDelay:"0s",left:"0px", scale : "0.7" }} className='background-effect-img' src={music_note} alt="" />
