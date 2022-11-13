@@ -10,6 +10,7 @@
     border: none;
     opacity: 0;
     cursor: pointer;
+    transition: 0.6s !important;
 
     animation-name: select-option-btn-show-anim;
     animation-duration: 2s;
@@ -20,35 +21,121 @@
     opacity: 1 !important;
 }
 
+.animate-top-button{
+    animation-name: top-button-anim;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    opacity: 1 !important;
+
+    animation-delay: 0s !important;
+}
+
+@keyframes top-button-anim-reverse {
+    0%{
+        top: -25vh;
+    }
+    10%{
+        top: -25vh;
+        color: aqua;
+        width: 400px;
+        border-bottom: 1px solid rgb(0, 217, 255);
+    }
+    60%{
+        top: -25vh;
+        color: aqua;
+        width: 400px;
+        background: none;
+        border-bottom: 1px solid rgb(0, 217, 255);
+    }
+    100%{
+        top: -90vh;
+        background: none;
+        color: aqua;
+        border-bottom: 1px solid rgb(0, 217, 255);
+        top: -300px !important;
+        width: 400px;
+        
+    }
+    
+}
+
+@keyframes top-button-anim {
+    0%{
+        top: -25vh;
+    }
+    10%{
+        top: -25vh;
+        color: aqua;
+        width: 400px;
+        border-bottom: 1px solid rgb(0, 217, 255);
+    }
+    60%{
+        top: -25vh;
+        color: aqua;
+        width: 400px;
+        background: none;
+        border-bottom: 1px solid rgb(0, 217, 255);
+    }
+    100%{
+        top: -90vh;
+        background: none;
+        color: aqua;
+        border-bottom: 1px solid rgb(0, 217, 255);
+        top: -300px !important;
+        width: 400px;
+        
+    }
+    
+}
+
 .select-option-btn-top{
-    top: 300px;
+    top: -25vh;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
 }
 .select-option-btn-left{
-    top: 300px;
-    left: 220px;
+    left:-35vw;
     margin-top: auto;
     margin-bottom: auto;
     top: 0;
     bottom: 0;
 }
 .select-option-btn-right{
-    top: 300px;
-    right: 220px;
+    right: -35vw;
     margin-top: auto;
     margin-bottom: auto;
     top: 0;
     bottom: 0;
 }
 .select-option-btn-bottom{
-    bottom: 300px;
+    bottom: -25vh;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
+}
+
+.display-none{
+    display: none !important;
+}
+
+.hide-option-btn{
+    animation-name: hide-option-btn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 0s !important;
+    opacity: 0.4;
+}
+@keyframes hide-option-btn {
+    from{
+        opacity: 0.4;
+    }
+    to{
+        opacity: 0;
+    }
+    
 }
 
 @keyframes select-option-btn-show-anim {
