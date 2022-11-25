@@ -10,82 +10,15 @@
     border: none;
     opacity: 0;
     cursor: pointer;
-    transition: 0.6s !important;
-
-    animation-name: select-option-btn-show-anim;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
+    display: none;
+    transition: 0.4s;
 }
 .select-option-btn:hover{
-    transition: 0.3s;
     opacity: 1 !important;
 }
 
-.animate-top-button{
-    animation-name: top-button-anim;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-    opacity: 1 !important;
-
-    animation-delay: 0s !important;
-}
-
-@keyframes top-button-anim-reverse {
-    0%{
-        top: -25vh;
-    }
-    10%{
-        top: -25vh;
-        color: aqua;
-        width: 400px;
-        border-bottom: 1px solid rgb(0, 217, 255);
-    }
-    60%{
-        top: -25vh;
-        color: aqua;
-        width: 400px;
-        background: none;
-        border-bottom: 1px solid rgb(0, 217, 255);
-    }
-    100%{
-        top: -90vh;
-        background: none;
-        color: aqua;
-        border-bottom: 1px solid rgb(0, 217, 255);
-        top: -300px !important;
-        width: 400px;
-        
-    }
-    
-}
-
-@keyframes top-button-anim {
-    0%{
-        top: -25vh;
-    }
-    10%{
-        top: -25vh;
-        color: aqua;
-        width: 400px;
-        border-bottom: 1px solid rgb(0, 217, 255);
-    }
-    60%{
-        top: -25vh;
-        color: aqua;
-        width: 400px;
-        background: none;
-        border-bottom: 1px solid rgb(0, 217, 255);
-    }
-    100%{
-        top: -90vh;
-        background: none;
-        color: aqua;
-        border-bottom: 1px solid rgb(0, 217, 255);
-        top: -300px !important;
-        width: 400px;
-        
-    }
-    
+.select-option-none-transition{
+    transition: 0s !important;
 }
 
 .select-option-btn-top{
@@ -115,34 +48,4 @@
     margin-right: auto;
     left: 0;
     right: 0;
-}
-
-.display-none{
-    display: none !important;
-}
-
-.hide-option-btn{
-    animation-name: hide-option-btn;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-    animation-delay: 0s !important;
-    opacity: 0.4;
-}
-@keyframes hide-option-btn {
-    from{
-        opacity: 0.4;
-    }
-    to{
-        opacity: 0;
-    }
-    
-}
-
-@keyframes select-option-btn-show-anim {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 0.4;
-    }
 }
