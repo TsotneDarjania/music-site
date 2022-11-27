@@ -15,8 +15,6 @@ const HomePageButton = (props) => {
         onAnimationComplete={props.animationComplete}
         >
         {props.innerText} 
-
-        
     </motion.button>
   )
 }

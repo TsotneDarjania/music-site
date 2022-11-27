@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+
 import "./style.css"
 
 import icon from "../../../img/beethoven_icon.png"
@@ -8,7 +8,7 @@ import HomePagebuttons from '../../homePageButtons'
 import { useState } from 'react'
 import { useRef } from 'react'
 import { motion} from "framer-motion"
-
+import { screenWidth } from "../../../helpers/constants"
 
 const HomePage = () => {
 
@@ -18,12 +18,16 @@ const HomePage = () => {
 
   const [backgroundEffectClass,setbackgroundEffectClass] = useState("")
 
+
+
   const webIconAnimations = {
     init : {opacity:1, scale:1},
     toRight : {opacity:1, scale:1,backgroundColor:"rgb(1, 11, 22)",
     border:"2px", right:"-90vw"},
     toTop : {opacity:1, scale:1,backgroundColor:"rgb(1, 11, 22)",
     border:"2px", right:"-92vw",top:"-85vh"},
+
+    hide: {display: "none"},
 
     reverseToTop:{opacity:1, scale:1,backgroundColor:"rgb(1, 11, 22)",
     border:"2px", right:"-90vw"},
@@ -38,15 +42,17 @@ const HomePage = () => {
 
   const [closeButtonAnimation,setCloseButtonAnimation] = useState("hide");
 
-
-  useEffect(() => {
-  
-  })
-
   function backToIntro(){
     setMainPageMode("intro")
 
-    setWebIconAnimation("reverseToTop")
+
+    if(screenWidth < 1100){
+      setbackgroundEffectClass("show-anim")
+      setWebIconAnimation("init")
+    } else {
+      setWebIconAnimation("reverseToTop")
+    }
+
 
     childRef.current.backToHome();
   }
@@ -54,7 +60,12 @@ const HomePage = () => {
   const changeMode = (mode) => {  
     setMainPageMode(mode);
 
-    setWebIconAnimation("toRight")
+    screenWidth < 1100 &&  setTimeout(() => {
+      setCloseButtonAnimation("init")
+
+    }, 500);
+
+    screenWidth < 1100 ? setWebIconAnimation("hide") : setWebIconAnimation("toRight")
     setbackgroundEffectClass("hide-anim")
   
   }

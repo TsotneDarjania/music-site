@@ -60,8 +60,7 @@
     }
     to{
         opacity: 1;
-    }
-    
+    } 
 }
 
 .web-icon{
@@ -74,4 +73,69 @@
     opacity: 0;
 
     cursor: pointer;
+}
+
+
+@media only screen and (max-width: 1100px) {
+    .web-icon{
+        position: absolute;
+        width: 10vw;
+        top: -50vh;
+
+
+        background-color: rgb(56, 56, 56);
+        border-radius: 4px;
+        box-shadow: 0 0px 5px black;
+        transform: scale(0);
+        opacity: 0;
+    
+        cursor: pointer;
+    }
+
+    .close-button{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left: initial;
+        top: initial;
+        z-index: 20;
+        right: 30px;
+        bottom: 30px;
+        cursor: pointer;
+        opacity: 0;
+    }
+
+}
+
+
+@media only screen and (max-width: 500px) {
+    .web-icon{
+        position: absolute;
+        width: 20vw;
+        top: -50vh;
+
+
+        background-color: rgb(56, 56, 56);
+        border-radius: 4px;
+        box-shadow: 0 0px 5px black;
+        transform: scale(0);
+        opacity: 0;
+    
+        cursor: pointer;
+    }
+
+    .close-button{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left: initial;
+        top: initial;
+        z-index: 20;
+        right: 30px;
+        bottom: 30px;
+        cursor: pointer;
+        opacity: 0;
+    }
+
+
 }

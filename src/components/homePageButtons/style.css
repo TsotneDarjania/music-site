@@ -49,3 +49,114 @@
     left: 0;
     right: 0;
 }
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1100px) {
+    .select-option-btn{
+        position: absolute;
+        width: 350px;
+        height: 60px;
+        font-family: "BPG Boxo", sans-serif;
+        color: bisque;
+        font-size: 20px;
+        background-color: rgb(36, 36, 36);
+        border: none;
+        opacity: 0;
+        cursor: pointer;
+        display: none;
+        transition: 0.4s;
+    }
+
+    .select-option-btn-top{
+        top: -25vh;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+    .select-option-btn-left{
+        top: 0vh;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+    .select-option-btn-right{
+        top: 50vh;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+    .select-option-btn-bottom{
+        top: 0vh;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 500px) {
+    .select-option-btn{
+        position: absolute;
+        width: 350px;
+        height: 60px;
+        font-family: "BPG Boxo", sans-serif;
+        color: bisque;
+        font-size: 20px;
+        background-color: rgb(36, 36, 36);
+        border: none;
+        opacity: 0;
+        cursor: pointer;
+        display: none;
+        transition: 0.4s;
+    }
+
+    .select-option-btn-top{
+        top: -25vh;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+    .select-option-btn-left{
+        top: 0vh;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+    .select-option-btn-right{
+        top: 50vh;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+    .select-option-btn-bottom{
+        top: 0vh;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+
+}

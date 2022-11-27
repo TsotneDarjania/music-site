@@ -2,6 +2,7 @@ import { useImperativeHandle } from 'react';
 import { forwardRef } from 'react';
 import { useState } from 'react'
 import "./style.css"
+import {screenWidth} from "../../helpers/constants"
 
 import HomePageButton from '../homePageButton';
 
@@ -38,14 +39,18 @@ const HomePagebuttons =  forwardRef ( (props,ref) => {
         }
     }
 
+
     const topButtonAnimations = {
         init: {display:"block", opacity: 0.4},
-        stretching: {display:"block",width:500, opacity:1},
-        expand: {display:"block",width:500, opacity:1,height:80,fontSize:"25px",color:"aqua",borderBottom:"1px solid aqua"},
-        toTop: {display:"block",width:500, opacity:1,height:80,fontSize:"25px",color:"aqua",background:"none",borderBottom:"1px solid aqua",top:"-87vh"},
+        stretching: {display:"block",
+        width: screenWidth < 1100 ? "95vw" : 500, 
+        opacity:1
+        },
+        expand: {display:"block",width: screenWidth < 1100 ? "95vw" : 500, opacity:1,height:80,fontSize:"25px",color:"aqua",borderBottom:"1px solid aqua"},
+        toTop: {display:"block",width: screenWidth < 1100 ? "95vw" : 500, opacity:1,height:80,fontSize:"25px",color:"aqua",background:"none",borderBottom:"1px solid aqua",top:"-87vh"},
 
-        reverseStretching: {display:"block",width:300, opacity:1,height:80,fontSize:"20px",color:"aqua",background:"none",borderBottom:"1px solid aqua",top:"-87vh"},
-        reverseExpand: {display:"block",width:300, opacity:1,height:60,top:"-87vh"},
+        reverseStretching: {display:"block",screenWidth: screenWidth < 500 ? "95vw" : 500, opacity:1,height:80,fontSize:"20px",color:"aqua",background:"none",borderBottom:"1px solid aqua",top:"-87vh"},
+        reverseExpand: {display:"block",screenWidth: screenWidth < 500 ? "95vw" : 500, opacity:1,height:60,top:"-87vh"},
         reverseToTop:{display:"block", opacity:0.4}
     }
     const [topButtonAnimation,setTopButtonAnimation] = useState("init");
@@ -78,7 +83,7 @@ const HomePagebuttons =  forwardRef ( (props,ref) => {
     <HomePageButton
         currentAnimation = {topButtonAnimation}
         animations = {topButtonAnimations}
-        delay = {topButtonAnimation === "init" ? 1:0}
+        delay = {topButtonAnimation === "init" ? 0.7:0}
         animationDuration = {0.6}
         animationMode = {"anticipate"}
         className="select-option-btn-top"
@@ -87,7 +92,7 @@ const HomePagebuttons =  forwardRef ( (props,ref) => {
         onClick = { () => {
             setextraClassTopButton("select-option-none-transition") 
 
-            setTopButtonAnimation("expand")
+            setTopButtonAnimation("stretching")
             setLeftButtonAnimation("hide")
             setRightButtonAnimation("hide")
             setBottomButtonAnimation("hide")
@@ -115,7 +120,7 @@ const HomePagebuttons =  forwardRef ( (props,ref) => {
     <HomePageButton
         currentAnimation = {leftButtonAnimation}
         animations = {leftButtonAnimations}
-        delay = {leftButtonAnimation === "init" ? 1.5:0}
+        delay = {leftButtonAnimation === "init" ? 0.6:0}
         animationDuration = {leftButtonAnimation === "hide" ? 0.2:2}
         animationMode = {"anticipate"}
         className="select-option-btn-left"
@@ -135,7 +140,7 @@ const HomePagebuttons =  forwardRef ( (props,ref) => {
     <HomePageButton
         currentAnimation = {bottomButtonAnimation}
         animations = {bottomButtonAnimations}
-        delay = {bottomButtonAnimation === "init" ? 1.5:0}
+        delay = {bottomButtonAnimation === "init" ? 1.2:0}
         animationDuration = {bottomButtonAnimation === "hide" ? 0.2:2}
         animationMode = {"anticipate"}
         className="select-option-btn-bottom"
@@ -155,7 +160,7 @@ const HomePagebuttons =  forwardRef ( (props,ref) => {
       <HomePageButton
         currentAnimation = {rightButtonAnimation}
         animations = {rightButtonAnimations}
-        delay = {rightButtonAnimation === "init" ? 1.5:0}
+        delay = {rightButtonAnimation === "init" ? 1.8:0}
         animationDuration = {rightButtonAnimation === "hide" ? 0.2:2}
         animationMode = {"anticipate"}
         className="select-option-btn-right"
