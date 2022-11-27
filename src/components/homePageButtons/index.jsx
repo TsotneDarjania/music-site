@@ -1,10 +1,9 @@
-import React, { useEffect, useRef } from 'react'
 import { useImperativeHandle } from 'react';
 import { forwardRef } from 'react';
 import { useState } from 'react'
 import "./style.css"
 
-import {motion} from "framer-motion"
+import HomePageButton from '../homePageButton';
 
 
 const HomePagebuttons =  forwardRef ( (props,ref) => {
@@ -15,22 +14,11 @@ const HomePagebuttons =  forwardRef ( (props,ref) => {
         }
     })
 
-    const topButtonRef = useRef();
-    const leftButtonRef = useRef();
-    const rightButtonRef = useRef();
-    const bottomButtonRef = useRef();
 
     const [extraClassTopButton,setextraClassTopButton] = useState("");
     const [extraClassBottomButton,setextraClassBottomButton] = useState("");
     const [extraClassLeftButton,setextraClassLeftButton] = useState("");
     const [extraClassRightButton,setextraClassRIghtButton] = useState("");
-
- 
-
-
-    useEffect(() => {
-        
-    },[])
 
 
     const selectOption = (option) => {
@@ -85,95 +73,103 @@ const HomePagebuttons =  forwardRef ( (props,ref) => {
 
   return (
     <div>
-        <motion.button  
-        type='button'
-            animate = {topButtonAnimation}
-            variants = {topButtonAnimations}
-            ref={topButtonRef} 
-            transition={ { delay: topButtonAnimation === "init" ? 1:0, ease:"anticipate", duration: 0.6 } }
-            onClick={ () => {  
-                setextraClassTopButton("select-option-none-transition") 
 
-                setTopButtonAnimation("expand")
-                setLeftButtonAnimation("hide")
-                setRightButtonAnimation("hide")
-                setBottomButtonAnimation("hide")
+    {/* Top Button */}
+    <HomePageButton
+        currentAnimation = {topButtonAnimation}
+        animations = {topButtonAnimations}
+        delay = {topButtonAnimation === "init" ? 1:0}
+        animationDuration = {0.6}
+        animationMode = {"anticipate"}
+        className="select-option-btn-top"
+        extraClass = {extraClassTopButton}
+        innerText = {"მუსიკალური ქვიზები"}
+        onClick = { () => {
+            setextraClassTopButton("select-option-none-transition") 
 
-                selectOption("quiz")
+            setTopButtonAnimation("expand")
+            setLeftButtonAnimation("hide")
+            setRightButtonAnimation("hide")
+            setBottomButtonAnimation("hide")
 
-            }} 
-            onAnimationComplete={ (anim) => {
-                if(anim === "stretching"){
-                    setTopButtonAnimation("expand") 
-                }
-                if(anim === "expand"){
-                    setTopButtonAnimation("toTop") 
-                }
+            selectOption("quiz")
+        }}
+        animationComplete={ (anim) => {
+            if(anim === "stretching"){
+                setTopButtonAnimation("expand") 
+            }
+            if(anim === "expand"){
+                setTopButtonAnimation("toTop") 
+            }
 
-                if(anim === "reverseStretching"){
-                    setTopButtonAnimation("reverseExpand") 
-                }
-                if(anim === "reverseExpand"){
-                    setTopButtonAnimation("reverseToTop") 
-                }
-            }}
-            className={'select-option-btn center select-option-btn-top '+extraClassTopButton}>
-            მუსიკალური ქვიზები 
-        </motion.button>
+            if(anim === "reverseStretching"){
+                setTopButtonAnimation("reverseExpand") 
+            }
+            if(anim === "reverseExpand"){
+                setTopButtonAnimation("reverseToTop") 
+            }
+        }}
+    />
 
-        <motion.button  
-        type='button'
-            animate = {leftButtonAnimation}
-            variants = {leftButtonAnimations}
-            ref={leftButtonRef} 
-            transition={ { delay: leftButtonAnimation === "init" ? 1.5:0, type: 'spring',duration: leftButtonAnimation === "hide" ? 0.2:2 } }
-            onClick={ () => {  
-             
-            }} 
-            onAnimationComplete={ (anim) => {
-                if(anim === "hide"){
-                    setLeftButtonAnimation("disabled")  
-                }
-            }}
-            className={'select-option-btn center select-option-btn-left '+extraClassLeftButton}>
-            სოციალური ქსელი
-        </motion.button>
+    {/* Left Button */}
+    <HomePageButton
+        currentAnimation = {leftButtonAnimation}
+        animations = {leftButtonAnimations}
+        delay = {leftButtonAnimation === "init" ? 1.5:0}
+        animationDuration = {leftButtonAnimation === "hide" ? 0.2:2}
+        animationMode = {"anticipate"}
+        className="select-option-btn-left"
+        extraClass = {extraClassLeftButton}
+        innerText = {"სოციალური ქსელი"}
+        onClick = { () => {
+        
+        }}
+        animationComplete={ (anim) => {
+            if(anim === "hide"){
+                setLeftButtonAnimation("disabled")  
+            }
+        }}
+    />
 
-        <motion.button  
-        type='button'
-            animate = {bottomButtonAnimation}
-            variants = {bottomButtonAnimations}
-            ref={bottomButtonRef} 
-            transition={ { delay: bottomButtonAnimation === "init" ? 2:0, type: 'spring',duration: bottomButtonAnimation === "hide" ? 0.2:2 } }
-            onClick={ () => {  
-             
-            }} 
-            onAnimationComplete={ (anim) => {
-                if(anim === "hide"){
-                    setBottomButtonAnimation("disabled")  
-                }
-            }}
-            className={'select-option-btn center select-option-btn-bottom '+extraClassBottomButton}>
-            ბლოგები
-        </motion.button>
+    {/* Bottom Button */}
+    <HomePageButton
+        currentAnimation = {bottomButtonAnimation}
+        animations = {bottomButtonAnimations}
+        delay = {bottomButtonAnimation === "init" ? 1.5:0}
+        animationDuration = {bottomButtonAnimation === "hide" ? 0.2:2}
+        animationMode = {"anticipate"}
+        className="select-option-btn-bottom"
+        extraClass = {extraClassBottomButton}
+        innerText = {"ბლოგები"}
+        onClick = { () => {
+        
+        }}
+        animationComplete={ (anim) => {
+            if(anim === "hide"){
+                setBottomButtonAnimation("disabled")  
+            }
+        }}
+    />
 
-        <motion.button  
-        type='button'
-            animate = {rightButtonAnimation}
-            variants = {rightButtonAnimations}
-            ref={rightButtonRef} 
-            transition={ {delay: rightButtonAnimation === "init" ? 2.5:0, type: 'spring',duration: rightButtonAnimation === "hide" ? 0.2:2 } }
-            onClick={ () => {  
-             
-            }} 
-            onAnimationComplete={ (anim) => {
-                if(anim === "hide"){
-                    setRightButtonAnimation("disabled")  
-                }
-            }}
-            className={'select-option-btn center select-option-btn-right '+extraClassRightButton}>
-            ჩემს შესახებ
-        </motion.button>
+      {/* Right Button */}
+      <HomePageButton
+        currentAnimation = {rightButtonAnimation}
+        animations = {rightButtonAnimations}
+        delay = {rightButtonAnimation === "init" ? 1.5:0}
+        animationDuration = {rightButtonAnimation === "hide" ? 0.2:2}
+        animationMode = {"anticipate"}
+        className="select-option-btn-right"
+        extraClass = {extraClassRightButton}
+        innerText = {"ჩემს შესახებ"}
+        onClick = { () => {
+        
+        }}
+        animationComplete={ (anim) => {
+            if(anim === "hide"){
+                setBottomButtonAnimation("disabled")  
+            }
+        }}
+    />
        
       
     </div>
